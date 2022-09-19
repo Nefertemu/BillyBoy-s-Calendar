@@ -9,7 +9,9 @@ import UIKit
 
 class GamesListTableViewController: UITableViewController {
     
-    var games: Result = Result(results: [])
+    private var games: Result = Result(results: [])
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +32,23 @@ class GamesListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let currentGame = games.results[indexPath.row]
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "game") as? GameTableViewCell {
-            let currentGame = games.results[indexPath.row]
             
             cell.gameImage.downloaded(from: currentGame.background_image)
+            
             cell.gameTitleLabel.text = currentGame.name
             cell.gameTitleLabel.font = .boldSystemFont(ofSize: 20)
-            cell.gameReleaseDateLabel.text = "Release date: \(currentGame.released)"
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let convertedDate = dateFormatter.date(from: currentGame.released)
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            let goodDate = dateFormatter.string(from: convertedDate ?? Date.now)
+            cell.gameReleaseDateLabel.text = "Release date: \(goodDate)"
+            
             cell.gameGenreLabel.text = "Genre: \(currentGame.genres.randomElement()!.name)"
             
             return cell
@@ -60,7 +72,11 @@ class GamesListTableViewController: UITableViewController {
     }
     
     private func fetchGames() {
-        guard let url = URL(string: "https://api.rawg.io/api/games?key=f07deefc2bc44d598924364d1352b9db&platforms=186&dates=2022-09-19,2022-12-30&ordering=released") else { return }
+        let today = Date.now
+        let formatterToday = DateFormatter()
+        formatterToday.dateFormat = "yyyy-MM-dd"
+        
+        guard let url = URL(string: "https://api.rawg.io/api/games?key=f07deefc2bc44d598924364d1352b9db&platforms=186&dates=\(formatterToday.string(from: today)),2022-12-30&ordering=released") else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let data = data {
@@ -78,52 +94,8 @@ class GamesListTableViewController: UITableViewController {
             }
         }.resume()
     }
-    /*
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-     
-     // Configure the cell...
-     
-     return cell
-     }
-     */
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
+     /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
