@@ -13,8 +13,9 @@
 		4352461E28D8979500F02766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4352461D28D8979500F02766 /* Assets.xcassets */; };
 		4352462128D8979500F02766 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4352461F28D8979500F02766 /* LaunchScreen.storyboard */; };
 		4352462928D8980C00F02766 /* GamesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4352462828D8980C00F02766 /* GamesListTableViewController.swift */; };
+		43AEB2E428D89B4500FF1203 /* GameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43AEB2E228D89B4500FF1203 /* GameTableViewCell.xib */; };
+		43AEB2E628D8D00F00FF1203 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AEB2E528D8D00F00FF1203 /* Game.swift */; };
 		43B773BF28D89AC7002238CC /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B773BD28D89AC7002238CC /* GameTableViewCell.swift */; };
-		43B773C028D89AC7002238CC /* GameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43B773BE28D89AC7002238CC /* GameTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +27,9 @@
 		4352462028D8979500F02766 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4352462228D8979500F02766 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4352462828D8980C00F02766 /* GamesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesListTableViewController.swift; sourceTree = "<group>"; };
+		43AEB2E328D89B4500FF1203 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GameTableViewCell.xib; sourceTree = "<group>"; };
+		43AEB2E528D8D00F00FF1203 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		43B773BD28D89AC7002238CC /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
-		43B773BE28D89AC7002238CC /* GameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		4352462A28D8986600F02766 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				43AEB2E528D8D00F00FF1203 /* Game.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -81,6 +84,7 @@
 			children = (
 				4352461F28D8979500F02766 /* LaunchScreen.storyboard */,
 				4352461A28D8979300F02766 /* Main.storyboard */,
+				43AEB2E228D89B4500FF1203 /* GameTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -90,7 +94,6 @@
 			children = (
 				4352462828D8980C00F02766 /* GamesListTableViewController.swift */,
 				43B773BD28D89AC7002238CC /* GameTableViewCell.swift */,
-				43B773BE28D89AC7002238CC /* GameTableViewCell.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -174,7 +177,7 @@
 				4352462128D8979500F02766 /* LaunchScreen.storyboard in Resources */,
 				4352461E28D8979500F02766 /* Assets.xcassets in Resources */,
 				4352461C28D8979300F02766 /* Main.storyboard in Resources */,
-				43B773C028D89AC7002238CC /* GameTableViewCell.xib in Resources */,
+				43AEB2E428D89B4500FF1203 /* GameTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4352461528D8979300F02766 /* AppDelegate.swift in Sources */,
+				43AEB2E628D8D00F00FF1203 /* Game.swift in Sources */,
 				4352461728D8979300F02766 /* SceneDelegate.swift in Sources */,
 				4352462928D8980C00F02766 /* GamesListTableViewController.swift in Sources */,
 				43B773BF28D89AC7002238CC /* GameTableViewCell.swift in Sources */,
@@ -209,6 +213,14 @@
 				4352462028D8979500F02766 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		43AEB2E228D89B4500FF1203 /* GameTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43AEB2E328D89B4500FF1203 /* Base */,
+			);
+			name = GameTableViewCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

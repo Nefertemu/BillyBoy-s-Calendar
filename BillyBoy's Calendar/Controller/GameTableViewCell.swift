@@ -8,7 +8,13 @@
 import UIKit
 
 class GameTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet var gameImage: UIImageView!
+    
+    @IBOutlet var gameTitleLabel: UILabel!
+    @IBOutlet var gameReleaseDateLabel: UILabel!
+    @IBOutlet var gameGenreLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
