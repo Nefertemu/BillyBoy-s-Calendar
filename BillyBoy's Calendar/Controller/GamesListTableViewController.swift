@@ -11,8 +11,6 @@ class GamesListTableViewController: UITableViewController {
     
     private var games: Result = Result(results: [])
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,7 +62,7 @@ class GamesListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
+        130
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -85,7 +83,6 @@ class GamesListTableViewController: UITableViewController {
                     let parsedJSON = try jsonDecoder.decode(Result.self, from: data)
                     DispatchQueue.main.async {
                         self.games = parsedJSON
-                        print(self.games)
                         self.tableView.reloadData()
                     }
                 } catch {
